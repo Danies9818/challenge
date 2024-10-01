@@ -23,9 +23,14 @@ func ProcessTransactions(data models.FileData) (EmailData, error) {
 	transactionsByMonth := countTransactionsByMonth(data.Transactions)
 	avgDebit, avgCredit := calculateAverage(data.Transactions)
 
+	transactionsToShow := data.Transactions
+	if len(data.Transactions) > 5 {
+		transactionsToShow = data.Transactions[:5]
+	}
+
 	results := EmailData{
 		Person:              data.Person,
-		Transactions:        data.Transactions[:5],
+		Transactions:        transactionsToShow,
 		TotalBalance:        balance,
 		TransactionsByMonth: transactionsByMonth,
 		AverageDebitAmount:  avgDebit,
