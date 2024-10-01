@@ -83,7 +83,7 @@ func calculateAverage(transactions []models.Transaction) (float64, float64) {
 	}
 
 	avgDebit = sumDebit / float64(countDebit)
-	avgCredit = sumCredit / float64(sumCredit)
+	avgCredit = sumCredit / float64(countDebit)
 
 	return avgDebit, avgCredit
 }

@@ -9,12 +9,8 @@ import (
 	"time"
 )
 
-// JSONProcessor define la estrategia para procesar archivos JSON
 type JSONProcessor struct{}
 
-// Data es el formato de los datos en el archivo JSON
-
-// Process procesa el archivo JSON leído desde S3
 func (p *JSONProcessor) Process(bucket, key string) error {
 	// Leer el archivo desde S3 usando el repositorio
 	data, err := repositories.DownloadFileFromS3(bucket, key)
