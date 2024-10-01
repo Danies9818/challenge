@@ -1,0 +1,26 @@
+Hola, {{.Person.Name}}!
+
+Se ha procesado tu archivo {{.File}} con las siguientes transacciones:
+
+Transacciones:
+{{range .Transactions}}
+- ID de Transacción: {{.ID}}
+  Fecha: {{.Date}}
+  Cantidad: {{.Amount}}
+{{end}}
+
+Resumen Financiero:
+
+- Total Balance: {{.TotalBalance}}
+- Promedio de Débito: {{.AverageDebitAmount}}
+- Promedio de Crédito: {{.AverageCreditAmount}}
+
+Transacciones por mes:
+{{range $month, $count := .TransactionsByMonth}}
+- Mes: {{$month}}, Número de Transacciones: {{$count}}
+{{end}}
+
+Gracias por utilizar nuestro servicio.
+
+-------------------------------------
+© 2024 Tu Compañía. Todos los derechos reservados.
